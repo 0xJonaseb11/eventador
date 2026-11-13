@@ -1,7 +1,7 @@
 :root {
   --blue: #004a88;
-  --pink: #fe2f95;
-  --ice: #c9e3fb;
+  --pink: #ea007b;
+  --ice: #d9eefd;
   --panel: #eef6fe;
   --ink: #1c2430;
   --muted: #667085;
@@ -232,56 +232,49 @@ img {
 
 .collage {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 10px;
-  min-width: 0;
+  width: 100%;
+  aspect-ratio: 1.44 / 1;
+}
+
+.shot,
+.chip {
+  position: absolute;
 }
 
 .shot {
-  width: 100%;
-  height: 100%;
-  min-width: 0;
-  min-height: 0;
   object-fit: cover;
-  border-radius: 16px;
-  position: relative;
+  border-radius: 12px;
   z-index: 1;
 }
 
 .shot-server {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  justify-self: start;
-  width: 74%;
-  aspect-ratio: 4 / 3;
-  height: auto;
-  object-position: center 28%;
-}
-
-.shot-photographer,
-.shot-dj {
-  aspect-ratio: 16 / 11;
-  height: auto;
+  left: 0;
+  top: 0;
+  width: 85%;
+  height: 50%;
+  object-position: center 18%;
 }
 
 .shot-photographer {
-  grid-column: 1;
-  grid-row: 2;
-  object-position: 46% 42%;
+  left: 0;
+  top: 54%;
+  width: 47.5%;
+  height: 46%;
+  object-position: 42% 35%;
 }
 
 .shot-dj {
-  grid-column: 2;
-  grid-row: 2;
+  left: 51.5%;
+  top: 54%;
+  width: 48.5%;
+  height: 46%;
   object-position: center 42%;
 }
 
 .chip {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  border-radius: 3px;
+  width: 11.5%;
+  aspect-ratio: 1;
+  border-radius: 5px;
 }
 
 .chip-pink {
@@ -291,15 +284,20 @@ img {
 
 .chip-ice {
   background: var(--ice);
-  z-index: 0;
+  z-index: 2;
 }
 
 .chip-top {
-  top: 18%;
-  left: calc(74% + 12px);
+  left: 87.2%;
+  top: 14%;
 }
 
-.chip-side,
+.chip-side {
+  left: 87.2%;
+  top: 34%;
+}
+
+.chip-bridge,
 .chip-bottom,
 .chip-corner {
   display: none;
@@ -493,38 +491,51 @@ img {
 
 .footer {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 22px 0 28px;
-  font-size: 13.5px;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding: 14px 0 18px;
+  font-size: clamp(8px, 2.7vw, 12px);
 }
 
 .footer .brand {
-  flex-wrap: wrap;
+  flex: none;
+  flex-wrap: nowrap;
+  gap: 6px;
 }
 
 .footer .mark {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
 }
 
 .footer .brand-name strong {
-  font-size: 13px;
+  font-size: 1em;
 }
 
 .footer .brand-name span {
-  font-size: 12px;
+  font-size: 0.92em;
 }
 
 .place {
-  margin-left: 4px;
+  display: none;
+}
+
+.foot-rule {
+  width: 1px;
+  height: 1.3em;
+  flex: none;
+  background: #d5dbe3;
 }
 
 .footer-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.7em;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .btn:hover {
@@ -612,67 +623,87 @@ img {
   }
 
   .collage {
-    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 14px;
-    height: 360px;
+    aspect-ratio: 1.81 / 1;
+  }
+
+  .shot {
+    border-radius: 16px;
   }
 
   .shot-server {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: auto;
-    object-position: center 32%;
-  }
-
-  .shot-photographer,
-  .shot-dj {
-    aspect-ratio: auto;
-    height: 100%;
+    left: 3.6%;
+    top: 9%;
+    width: 42.6%;
+    height: 81%;
+    object-position: center 30%;
   }
 
   .shot-photographer {
-    grid-column: 2;
-    grid-row: 1;
+    left: 47.4%;
+    top: 1.5%;
+    width: 42%;
+    height: 46%;
+    object-position: center 30%;
   }
 
   .shot-dj {
-    grid-column: 2;
-    grid-row: 2;
+    left: 47.4%;
+    top: 50.5%;
+    width: 46.5%;
+    height: 47%;
+    object-position: center 45%;
   }
 
   .chip {
-    width: 34px;
-    height: 34px;
+    width: 6.2%;
+    border-radius: 4px;
   }
 
-  .chip-side,
+  .chip-bridge,
   .chip-bottom,
-  .chip-corner {
+  .chip-corner,
+  .chip-side {
     display: block;
   }
 
+  .chip-bridge {
+    left: 24%;
+    top: 2.4%;
+    width: 22%;
+    height: 7.2%;
+    aspect-ratio: auto;
+    border-radius: 5px;
+    z-index: 0;
+  }
+
   .chip-top {
-    top: -8px;
-    right: -8px;
-    left: auto;
+    left: 91.5%;
+    top: 16%;
+    width: 6.4%;
   }
 
   .chip-side {
-    top: 72px;
-    right: -12px;
+    left: 91%;
+    top: 32%;
+    width: 7.4%;
+    height: 32%;
+    aspect-ratio: auto;
+    border-radius: 6px;
+    z-index: 0;
   }
 
   .chip-bottom {
-    left: 36%;
-    bottom: -12px;
+    left: 37%;
+    top: 87%;
+    width: 8%;
+    z-index: 0;
   }
 
   .chip-corner {
-    right: 7%;
-    bottom: -14px;
+    left: 0;
+    top: 74%;
+    width: 11%;
+    z-index: 0;
   }
 
   .how {
@@ -714,9 +745,36 @@ img {
   }
 
   .footer {
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
     gap: 18px;
+    padding: 22px 0 32px;
+    font-size: 13.5px;
+  }
+
+  .foot-rule {
+    display: none;
+  }
+
+  .place {
+    display: inline;
+    margin-left: 12px;
+    color: var(--muted);
+  }
+
+  .footer .mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer .brand-name strong {
+    font-size: 13px;
+  }
+
+  .footer .brand-name span {
+    font-size: 12px;
+  }
+
+  .footer-links {
+    gap: 8px 18px;
   }
 }
